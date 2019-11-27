@@ -35,8 +35,6 @@ OBJS_CLANG=\
 	$(OBJDIR_CLANG)\main.obj\
 
 LIBS=\
-	gmock.lib\
-	gtest.lib\
 
 CFLAGS=\
 	/nologo\
