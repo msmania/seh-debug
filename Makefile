@@ -35,6 +35,7 @@ OBJS_CLANG=\
 	$(OBJDIR_CLANG)\main.obj\
 
 LIBS=\
+	ole32.lib\
 
 CFLAGS=\
 	/nologo\
