@@ -14,6 +14,7 @@ OUTDIR_CLANG=bin-clang\$(ARCH)
 OBJDIR_CLANG=obj-clang\$(ARCH)
 SRCDIR=src
 
+CLANGDIR=D:\llvm\LLVM-9.0.0-win64
 MSVCDIR=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC
 VCINCLUDE=$(MSVCDIR)\Tools\MSVC\14.23.28105
 WIN10KITINCLUDE=C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0
@@ -25,8 +26,8 @@ RM=del/q
 TARGET=t.exe
 CC=cl.exe
 LINKER=link.exe
-CLANG=D:\llvm\LLVM-9.0.0-win64\bin\clang++.exe
-LLD=D:\llvm\LLVM-9.0.0-win64\bin\lld-link.exe
+CLANG=$(CLANGDIR)\bin\clang++.exe
+LLD=$(CLANGDIR)\bin\lld-link.exe
 
 OBJS=\
 	$(OBJDIR)\main.obj\
@@ -64,6 +65,7 @@ CLANG_FLAGS=\
 	-triple $(TRIPLE)\
 	-target-cpu $(CPU)\
 	--dependent-lib=msvcrt\
+	-internal-isystem "$(CLANGDIR)\lib\clang\9.0.0\include"\
 	-internal-isystem "$(VCINCLUDE)\include"\
 	-internal-isystem "$(VCINCLUDE)\atlmfc\include"\
 	-internal-isystem "$(WIN10KITINCLUDE)\shared"\
